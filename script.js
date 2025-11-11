@@ -1,17 +1,19 @@
-const btn = document.getElementById("btn")
-const res = document.getElementById("res")
-
-btn.addEventListener("click", () => {
-    fetch('https://ip-api.com/json/')
-        .then(response => response.json())
+document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("btn")
+    const res = document.getElementById("res")
+  
+    btn.addEventListener("click", () => {
+      fetch('https://ipapi.co/json/')
+        .then(r => r.json())
         .then(data => {
-            res.innerHTML = `
+          res.innerHTML = `
             <div class="res-card">
-                <p>Country: ${data.country}</p>
-                <p>Region: ${data.regionName}</p>
-                <p>City: ${data.city}</p>
+              <p>Country: ${data.country}</p>
+              <p>Region: ${data.region}</p>
+              <p>City: ${data.city}</p>
             </div>
-        `;
+          `;
         })
-        .catch(error => console.error('Error fetching data:', error));
-})
+    })
+  })
+  
